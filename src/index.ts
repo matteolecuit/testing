@@ -1,3 +1,4 @@
+import { cancelOrder } from "./coffeeMakingService";
 import { askPaymentInCash } from "./coinAcceptorService";
 import { initCreditCardPayment } from "./creditCardService";
 
@@ -15,5 +16,6 @@ export const selectDrink = async (props: SelectDrinkProps) => {
 };
 
 export const returnTheMoney = async (money: number) => {
+  await cancelOrder();
   return money;
 };

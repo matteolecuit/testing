@@ -1,6 +1,7 @@
 import { selectDrink, getIfCupInCoffeeMaker, returnTheMoney } from "..";
 import * as creditCardService from "../creditCardService";
 import * as coinAcceptorService from "../coinAcceptorService";
+import * as coffeeMakingService from "../coffeeMakingService";
 import { prepareDrink } from "../coffeeMakingService";
 
 beforeAll(() => {
@@ -10,6 +11,9 @@ beforeAll(() => {
   jest
     .spyOn(coinAcceptorService, "askPaymentInCash")
     .mockImplementation(() => Promise.resolve(true));
+  jest
+    .spyOn(coffeeMakingService, "cancelOrder")
+    .mockImplementation(() => Promise.resolve());
 });
 
 test("1 - If have cup on the coffee maker don't give an other cup", () => {
@@ -34,9 +38,10 @@ test("4 - should send  request if moneyInCoinAcceptor = 0", async () => {
   expect(coinAcceptorService.askPaymentInCash).toBeCalled();
 });
 
-test("5 - The client add mony but cancel the order", async () => {
+test("5 - The client add money but cancel the order", async () => {
   const moneyOfTheClient = 50;
   const money = await returnTheMoney(moneyOfTheClient);
+  expect(coffeeMakingService.cancelOrder).toBeCalled();
   expect(money).toBe(moneyOfTheClient);
 });
 
