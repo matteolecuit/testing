@@ -1,6 +1,7 @@
 import { selectDrink, getIfCupInCoffeeMaker, returnTheMony } from "..";
 import * as creditCardService from "../creditCardService";
 import * as coinAcceptorService from "../coinAcceptorService";
+import { prepareDrink } from "../coffeeMakingService";
 
 beforeAll(() => {
   jest
@@ -37,4 +38,9 @@ test("5 - The client add mony but cancel the order", async () => {
   const monyOfTheClient = 50;
   const money = returnTheMony(monyOfTheClient);
   expect(money).toBe(monyOfTheClient);
+});
+test("6 - prepare drink without specifying sugar amount", async () => {
+  const drink = await prepareDrink({ drink: "coffee" });
+
+  expect(drink.sugar).toBe(0);
 });
