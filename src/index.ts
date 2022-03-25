@@ -14,6 +14,6 @@ export const selectDrink = async (props: SelectDrinkProps) => {
   await Promise.all([initCreditCardPayment(), askPaymentInCash()]);
 };
 
-export const returnTheMony = async (money: number) => {
+export const returnTheMoney = async (money: number) => {
   return money;
 };

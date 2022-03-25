@@ -1,4 +1,4 @@
-import { selectDrink, getIfCupInCoffeeMaker, returnTheMony } from "..";
+import { selectDrink, getIfCupInCoffeeMaker, returnTheMoney } from "..";
 import * as creditCardService from "../creditCardService";
 import * as coinAcceptorService from "../coinAcceptorService";
 import { prepareDrink } from "../coffeeMakingService";
@@ -35,10 +35,11 @@ test("4 - should send  request if moneyInCoinAcceptor = 0", async () => {
 });
 
 test("5 - The client add mony but cancel the order", async () => {
-  const monyOfTheClient = 50;
-  const money = returnTheMony(monyOfTheClient);
-  expect(money).toBe(monyOfTheClient);
+  const moneyOfTheClient = 50;
+  const money = await returnTheMoney(moneyOfTheClient);
+  expect(money).toBe(moneyOfTheClient);
 });
+
 test("6 - prepare drink without specifying sugar amount", async () => {
   const drink = await prepareDrink({ drink: "coffee" });
 
