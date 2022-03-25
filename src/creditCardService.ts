@@ -1,1 +1,3 @@
-export const initCreditCardPayment = async () => {};
+export const initCreditCardPayment = async () => {
+  return;
+};

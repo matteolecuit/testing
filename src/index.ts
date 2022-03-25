@@ -1,3 +1,5 @@
+import { initCreditCardPayment } from "./creditCardService";
+
 console.log("hello world");
 
 interface SelectDrinkProps {
@@ -5,4 +7,6 @@ interface SelectDrinkProps {
   moneyInCoinAcceptor: number;
 }
 
-export const selectDrink = (props: SelectDrinkProps) => {};
+export const selectDrink = async (props: SelectDrinkProps) => {
+  await initCreditCardPayment();
+};
