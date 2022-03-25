@@ -1,3 +1,3 @@
 export const initCreditCardPayment = async () => {
-  return;
+  return false;
 };
