@@ -15,7 +15,7 @@
     "ts-jest": "^27.1.4"
   },
   "scripts": {
-    "test": "jest",
+    "test": "tsc && test",
     "start": "tsc && node ./dist/index.js"
   }
 }

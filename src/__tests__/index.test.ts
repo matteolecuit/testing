@@ -6,7 +6,7 @@ beforeAll(() => {
     .spyOn(creditCardService, "initCreditCardPayment")
     .mockImplementation(() => Promise.resolve());
 });
-test("", async () => {
+test("should send creditCardPayment request if moneyInCoinAcceptor = 0", async () => {
   const moneyInCoinAcceptor = 0;
 
   selectDrink({ choice: "coffee", moneyInCoinAcceptor });
