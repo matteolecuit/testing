@@ -13,3 +13,7 @@ export const getIfCupInCoffeeMaker = (cup: boolean) => {
 export const selectDrink = async (props: SelectDrinkProps) => {
   await Promise.all([initCreditCardPayment(), askPaymentInCash()]);
 };
+
+export const returnTheMony = async (money: number) => {
+  return money;
+};
