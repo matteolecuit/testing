@@ -19,3 +19,7 @@ export const returnTheMoney = async (money: number) => {
   await cancelOrder();
   return money;
 };
+
+export const buyTheCoffee = async (priceOfTheCoffee: number, moneyOfTheClient: number) => {
+  return moneyOfTheClient - priceOfTheCoffee;
+};
