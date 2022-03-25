@@ -1,6 +1,7 @@
-import { cancelOrder } from "./coffeMakingService";
+import { cancelOrder } from "./coffeeMakingService";
 
 export const initCreditCardPayment = async () => {
-  await cancelOrder()
+  console.log("init payment");
+  await cancelOrder();
   return false;
 };
