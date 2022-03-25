@@ -5,6 +5,10 @@ interface SelectDrinkProps {
   moneyInCoinAcceptor: number;
 }
 
+export const getIfCupInCoffeeMaker = (cup: boolean) => {
+  return cup;
+};
+
 export const selectDrink = async (props: SelectDrinkProps) => {
   await initCreditCardPayment();
 };
