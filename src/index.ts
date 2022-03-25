@@ -1,3 +1,4 @@
+import { askPaymentInCash } from "./coinAcceptorService";
 import { initCreditCardPayment } from "./creditCardService";
 
 interface SelectDrinkProps {
@@ -10,5 +11,5 @@ export const getIfCupInCoffeeMaker = (cup: boolean) => {
 };
 
 export const selectDrink = async (props: SelectDrinkProps) => {
-  await initCreditCardPayment();
+  await Promise.all([initCreditCardPayment(), askPaymentInCash()]);
 };
