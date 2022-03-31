@@ -84,3 +84,18 @@ test("Feature 1 - prepare drink with sugar < 0", async () => {
 
   expect(drink.sugar).toBe(0);
 });
+
+describe("Test different coins", () => {
+  it.each([
+    [1, false],
+    [2, false],
+    [5, true],
+    [10, true],
+    [20, true],
+    [50, true],
+    [100, true],
+    [200, true],
+  ])("when the input is '%s'", (amount, expected) => {
+    expect(coinAcceptorService.isCoinValid(amount)).toBe(expected);
+  });
+});
