@@ -14,10 +14,19 @@ interface Drink {
 }
 
 export const prepareDrink = async (props: DrinkPreparation) => {
+  let sugar = 0;
+
+  if (props.sugar) {
+    if (props.sugar < 0) sugar = 0;
+    else if (props.sugar >= 5) sugar = 5;
+    else sugar = props.sugar;
+  }
+
   const drink: Drink = {
     drink: props.drink,
-    sugar: props.sugar ?? 0,
+    sugar: sugar,
     cup: true,
   };
+
   return drink;
 };
